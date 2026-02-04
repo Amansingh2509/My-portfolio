@@ -361,6 +361,78 @@
 
     .about-content h3 {
       font-size: 2.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content .about-text {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-content .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      color: #c0c0c0;
+      text-align: left;
+    }
+
+    .about-content .about-text .highlight {
+      color: #ffd700;
+      font-weight: 700;
+    }
+
+    .about-content .about-text .highlight-blue {
+      color: #00abf0;
+      font-weight: 600;
+    }
+
+    .about-content .about-text .highlight.institution {
+      color: #4ade80;
+      font-weight: 600;
+    }
+
+    .about-content .about-text .highlight.internship {
+      color: #f97316;
+      font-weight: 600;
+    }
+
+    .about-content .about-text .highlight.passion {
+      color: #ec4899;
+      font-weight: 700;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .more-text {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .more-text.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .about-content p {
@@ -520,39 +592,71 @@
 
     .skills {
       min-height: auto;
-      padding-bottom: 10rem;
-      padding-top: 0.1rem;
+      padding: 6rem 10%;
       background: #112e42;
     }
 
     .skills h2 {
-      margin-bottom: 2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      font-size: 2.8rem;
     }
 
     .skills .skills-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0rem;
+      gap: 3rem;
+      justify-content: center;
     }
 
     .skills-row .skills-column {
-      flex: 1 1 30rem;
+      flex: 1 1 40rem;
+      max-width: 500px;
     }
 
     .skills-column .title {
       font-size: 2rem;
-      margin: 0 0 1.5rem;
-      margin-left: 11rem;
+      margin: 0 0 2rem;
+      text-align: center;
+      color: #00abf0;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .skills-column .title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, #00abf0, #00d4ff);
+      border-radius: 3px;
+    }
+
+    .skills-box {
+      position: relative;
+      padding: 1rem;
     }
 
     .skills-box .skills-content {
       position: relative;
-      border: 0.2rem solid #00abf0;
-      border-radius: 0.6rem;
-      padding: 0.5rem 1.5rem;
-      margin: 0 5rem;
+      border: 2px solid rgba(0, 171, 240, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      margin: 0;
       overflow: hidden;
       z-index: 1;
+      background: linear-gradient(145deg, #0f2a3f, #112e42);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: 0.3s ease;
+    }
+
+    .skills-box .skills-content:hover {
+      border-color: #00abf0;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 171, 240, 0.2);
     }
 
     .skills-box .skills-content::before {
@@ -562,9 +666,13 @@
       left: 0;
       width: 0;
       height: 100%;
-      background: #081b29;
+      background: linear-gradient(
+        to right,
+        rgba(0, 171, 240, 0.1),
+        transparent
+      );
       z-index: -1;
-      transition: 0.5s;
+      transition: 0.5s ease;
     }
 
     .skills-box .skills-content:hover::before {
@@ -572,32 +680,41 @@
     }
 
     .skills-content .progress {
-      padding: 0.1rem 0;
+      padding: 0.5rem 0;
     }
 
     .skills-content .progress h3 {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
       display: flex;
       justify-content: space-between;
-    }
-
-    .skills-content .progress h3 span {
+      align-items: center;
+      margin-bottom: 0.8rem;
       color: #ededed;
     }
 
+    .skills-content .progress h3 span {
+      font-weight: 600;
+      color: #00abf0;
+      font-size: 1.2rem;
+    }
+
     .skills-content .progress .bar {
-      height: 2.5rem;
+      height: 2.2rem;
       border-radius: 0.6rem;
-      border: 0.2rem solid #00abf0;
-      padding: 0.5rem;
-      margin: 1rem 0;
+      border: 2px solid rgba(0, 171, 240, 0.3);
+      padding: 0.4rem;
+      margin: 0;
+      background: rgba(0, 0, 0, 0.2);
+      overflow: hidden;
     }
 
     .skills-content .progress .bar span {
       display: block;
       height: 100%;
-      border-radius: 0.3rem;
-      background: #00abf0;
+      border-radius: 0.4rem;
+      background: linear-gradient(to right, #00abf0, #00d4ff);
+      box-shadow: 0 0 10px rgba(0, 171, 240, 0.5);
+      transition: width 1s ease-in-out;
     }
 
     .skills-column:nth-child(1)
@@ -605,7 +722,7 @@
       .progress:nth-child(1)
       .bar
       span {
-      width: 90%;
+      width: 98%;
     }
 
     .skills-column:nth-child(1)
@@ -613,7 +730,7 @@
       .progress:nth-child(2)
       .bar
       span {
-      width: 80%;
+      width: 95%;
     }
 
     .skills-column:nth-child(1)
@@ -621,7 +738,7 @@
       .progress:nth-child(3)
       .bar
       span {
-      width: 40%;
+      width: 88%;
     }
 
     .skills-column:nth-child(1)
@@ -629,7 +746,7 @@
       .progress:nth-child(4)
       .bar
       span {
-      width: 40%;
+      width: 85%;
     }
 
     .skills-column:nth-child(2)
@@ -637,7 +754,7 @@
       .progress:nth-child(1)
       .bar
       span {
-      width: 70%;
+      width: 92%;
     }
 
     .skills-column:nth-child(2)
@@ -645,7 +762,7 @@
       .progress:nth-child(2)
       .bar
       span {
-      width: 70%;
+      width: 95%;
     }
 
     .skills-column:nth-child(2)
@@ -653,7 +770,7 @@
       .progress:nth-child(3)
       .bar
       span {
-      width: 80%;
+      width: 85%;
     }
 
     .skills-column:nth-child(2)
@@ -661,23 +778,105 @@
       .progress:nth-child(4)
       .bar
       span {
-      width: 80%;
+      width: 88%;
     }
 
     .project {
       min-height: auto;
-      padding-bottom: 7rem;
+      padding: 6rem 10%;
+      background: #081b29;
+    }
+
+    .project h2 {
+      text-align: center;
+      margin-bottom: 4rem;
+      font-size: 2.8rem;
+    }
+
+    .project .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .project1 {
-      text-align: center;
+      flex: 1 1 400px;
+      max-width: 500px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      height: 400px;
-      width: 400px;
+      align-items: center;
       color: #ededed;
-      border-radius: 0.6rem;
-      border: 0.2rem solid #00abf0;
-      background: transparent;
+      border-radius: 1.5rem;
+      border: 2px solid rgba(0, 171, 240, 0.4);
+      background: linear-gradient(145deg, #0f2a3f, #112e42);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project1::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 171, 240, 0.1),
+        transparent
+      );
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .project1:hover {
+      transform: translateY(-10px);
+      border-color: #00abf0;
+      box-shadow: 0 15px 40px rgba(0, 171, 240, 0.25);
+    }
+
+    .project1:hover::before {
+      opacity: 1;
+    }
+
+    .project1 a {
+      position: relative;
+      z-index: 1;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #00abf0;
+      text-decoration: none;
+      text-align: center;
+      padding: 1.5rem 2rem;
+      border: 2px solid #00abf0;
+      border-radius: 0.8rem;
+      background: rgba(0, 171, 240, 0.1);
+      transition: 0.3s ease;
+    }
+
+    .project1 a:hover {
+      background: #00abf0;
+      color: #081b29;
+      box-shadow: 0 0 25px rgba(0, 171, 240, 0.5);
+    }
+
+    .project1 p {
+      position: relative;
+      z-index: 1;
+      margin-top: 1rem;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.95rem;
+      color: #b0b0b0;
+      text-align: center;
+      padding: 0 1rem;
     }
 
     .contact {
@@ -894,14 +1093,55 @@
       </div>
 
       <div class="about-content">
-        <h3>Frontend Developer</h3>
-        <p>
-          hello, i am fullstack developer , i pursuing my degree from parul
-          university which is located in vadodara gujarat
-        </p>
+        <h3>Full Stack Developer</h3>
+        <div class="about-text">
+          <p>
+            <span class="highlight">Hello!</span> I am a
+            <span class="highlight-blue">Full Stack Developer</span> currently
+            pursuing my degree at
+            <span class="highlight institution"
+              >Parul University, Vadodara, Gujarat</span
+            >.
+          </p>
+          <p>
+            I have experience in
+            <span class="highlight-blue">full stack web development</span> as
+            well as <span class="highlight-blue">manual software testing</span>,
+            where I work with structured workflows and process handling.
+          </p>
+          <p>
+            I am familiar with
+            <span class="highlight-blue">Git and GitHub</span> for version
+            control and collaboration, and have working knowledge of
+            <span class="highlight-blue">SQL</span> for database management.
+          </p>
+          <div class="more-text" id="moreText">
+            <p>
+              Currently, I am doing an
+              <span class="highlight internship"
+                >internship at Accrete Info Solution Technologies Pvt. Ltd.,
+                Gandhinagar</span
+              >, where I am gaining hands-on industry experience and improving
+              my practical development skills.
+            </p>
+            <p>
+              I am <span class="highlight passion">passionate</span> about
+              learning new technologies and building
+              <span class="highlight-blue"
+                >efficient, reliable software solutions</span
+              >.
+            </p>
+          </div>
+        </div>
 
         <div class="btn-box btn">
-          <a href="#" class="btn">Read More</a>
+          <a
+            href="#"
+            class="btn"
+            id="readMoreBtn"
+            onclick="toggleReadMore(event)"
+            >Read More</a
+          >
         </div>
       </div>
     </section>
@@ -1006,22 +1246,22 @@
           <div class="skills-box">
             <div class="skills-content">
               <div class="progress">
-                <h3>HTML <span>90%</span></h3>
+                <h3>HTML <span>98%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
 
               <div class="progress">
-                <h3>CSS <span>80%</span></h3>
+                <h3>CSS <span>95%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
 
               <div class="progress">
-                <h3>React <span>80%</span></h3>
+                <h3>React <span>88%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
 
               <div class="progress">
-                <h3>node.js <span>80%</span></h3>
+                <h3>Node.js <span>85%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
             </div>
@@ -1034,22 +1274,22 @@
           <div class="skills-box">
             <div class="skills-content">
               <div class="progress">
-                <h3>GIT and GITHUB<span>80%</span></h3>
+                <h3>Git & GitHub <span>92%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
 
               <div class="progress">
-                <h3>Javascript <span>90%</span></h3>
+                <h3>JavaScript <span>95%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
 
               <div class="progress">
-                <h3>MERN Stack devlopment <span>80%</span></h3>
+                <h3>MERN Stack <span>85%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
 
               <div class="progress">
-                <h3>SQL<span>80%</span></h3>
+                <h3>SQL <span>88%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
             </div>
@@ -1057,20 +1297,36 @@
         </div>
       </div>
     </section>
-
     <!--project section design-->
 
     <section class="project" id="project">
-      <h2 class="heading">My <span>Project</span></h2>
-      <div class="project1">
-        <a
-          href="https://vercel-frontend-coral-mu.vercel.app/
-        "
-          >Room rental and home solution
-        </a>
+      <h2 class="heading">My <span>Projects</span></h2>
+      <div class="project-container">
+        <div class="project1">
+          <a href="https://vercel-frontend-coral-mu.vercel.app/" target="_blank"
+            >🏠 Room Rental & Home Solutions</a
+          >
+          <p>Full Stack MERN Application | Real Estate Platform</p>
+        </div>
       </div>
     </section>
 
     <!--contact section design -->
+
+    <script>
+      function toggleReadMore(event) {
+        event.preventDefault();
+        const moreText = document.getElementById("moreText");
+        const btn = document.getElementById("readMoreBtn");
+
+        moreText.classList.toggle("show");
+
+        if (moreText.classList.contains("show")) {
+          btn.textContent = "Show Less";
+        } else {
+          btn.textContent = "Read More";
+        }
+      }
+    </script>
   </body>
 </html>
