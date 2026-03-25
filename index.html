@@ -8,13 +8,17 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="st.css" /></head
-  ><style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "poppins", sans-serif;
+      font-family: "Poppins", sans-serif;
     }
 
     body {
@@ -107,6 +111,7 @@
       animation: showright 1s ease forwards;
       animation-delay: 0.4s;
     }
+
     .home-content h3 {
       position: relative;
       font-size: 32px;
@@ -191,19 +196,6 @@
       color: #00abf0;
     }
 
-    /* .home-content .btn-box a::before {
-        content:'' ;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background:#081b29;
-        animation: showright 1s ease forwards;
-        animation-delay: 1.9s;
-        z-index: 2;
-    } */
-
     .btn-box a:nth-child(2) {
       background: transparent;
       color: #00abf0;
@@ -237,7 +229,6 @@
       position: absolute;
       bottom: 40px;
       width: 200px;
-
       display: flex;
       justify-content: space-between;
     }
@@ -287,16 +278,8 @@
       width: 670px;
       height: 100%;
       background: transparent;
-      /* border: 2px solid; */
       transition: 0.5s;
     }
-
-    /* .home_imgHover:hover {
-        background: #081b29;
-        opacity: .8;
-    } */
-
-    /* keyframe animationss */
 
     @keyframes showright {
       100% {
@@ -381,22 +364,18 @@
       color: #ffd700;
       font-weight: 700;
     }
-
     .about-content .about-text .highlight-blue {
       color: #00abf0;
       font-weight: 600;
     }
-
     .about-content .about-text .highlight.institution {
       color: #4ade80;
       font-weight: 600;
     }
-
     .about-content .about-text .highlight.internship {
       color: #f97316;
       font-weight: 600;
     }
-
     .about-content .about-text .highlight.passion {
       color: #ec4899;
       font-weight: 700;
@@ -444,13 +423,13 @@
       display: inline-block;
       width: 10rem;
       height: 2.5rem;
-      text: center;
     }
 
     .btn-box .btn a::before {
       background: #112e42;
     }
 
+    /* ===================== EDUCATION SECTION ===================== */
     .education {
       display: flex;
       justify-content: center;
@@ -586,10 +565,94 @@
       flex-shrink: 0;
     }
 
-    .Education-column .h3 {
-      align-items: center;
+    /* ===================== INTERNSHIP CARD — SPECIAL STYLE ===================== */
+    .education-box .education-content.internship-card {
+      background: linear-gradient(
+        135deg,
+        #0a2a1a 0%,
+        #0d2d3d 50%,
+        #112e42 100%
+      );
+      border: 1px solid rgba(0, 255, 150, 0.25);
+      position: relative;
+      overflow: hidden;
     }
 
+    .education-box .education-content.internship-card::after {
+      content: "● LIVE";
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #00ff96;
+      background: rgba(0, 255, 150, 0.12);
+      border: 1px solid rgba(0, 255, 150, 0.4);
+      padding: 0.25rem 0.7rem;
+      border-radius: 2rem;
+      letter-spacing: 0.08em;
+      animation: livePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes livePulse {
+      0%,
+      100% {
+        opacity: 1;
+        box-shadow: 0 0 8px rgba(0, 255, 150, 0.4);
+      }
+      50% {
+        opacity: 0.7;
+        box-shadow: 0 0 18px rgba(0, 255, 150, 0.7);
+      }
+    }
+
+    .education-box .education-content.internship-card:hover {
+      transform: translateX(15px);
+      border-color: rgba(0, 255, 150, 0.6);
+      box-shadow: 0 8px 35px rgba(0, 255, 150, 0.18);
+    }
+
+    .education-box .education-content.internship-card::before {
+      background: #00ff96;
+      box-shadow:
+        0 0 15px rgba(0, 255, 150, 0.7),
+        0 0 30px rgba(0, 255, 150, 0.35);
+    }
+
+    .education-content.internship-card .year {
+      color: #00ff96 !important;
+      background: rgba(0, 255, 150, 0.1) !important;
+      border-color: rgba(0, 255, 150, 0.35) !important;
+    }
+
+    .education-content.internship-card .content h3 {
+      color: #fff;
+    }
+
+    .education-content.internship-card .content p i {
+      color: #00ff96;
+    }
+
+    .internship-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 255, 150, 0.15),
+        rgba(0, 171, 240, 0.1)
+      );
+      border: 1px solid rgba(0, 255, 150, 0.3);
+      color: #00ff96;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 2rem;
+      margin-top: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===================== SKILLS ===================== */
     .skills {
       min-height: auto;
       padding: 6rem 10%;
@@ -724,7 +787,6 @@
       span {
       width: 98%;
     }
-
     .skills-column:nth-child(1)
       .skills-content
       .progress:nth-child(2)
@@ -732,7 +794,6 @@
       span {
       width: 95%;
     }
-
     .skills-column:nth-child(1)
       .skills-content
       .progress:nth-child(3)
@@ -740,7 +801,6 @@
       span {
       width: 88%;
     }
-
     .skills-column:nth-child(1)
       .skills-content
       .progress:nth-child(4)
@@ -748,7 +808,6 @@
       span {
       width: 85%;
     }
-
     .skills-column:nth-child(2)
       .skills-content
       .progress:nth-child(1)
@@ -756,7 +815,6 @@
       span {
       width: 92%;
     }
-
     .skills-column:nth-child(2)
       .skills-content
       .progress:nth-child(2)
@@ -764,7 +822,6 @@
       span {
       width: 95%;
     }
-
     .skills-column:nth-child(2)
       .skills-content
       .progress:nth-child(3)
@@ -772,7 +829,6 @@
       span {
       width: 85%;
     }
-
     .skills-column:nth-child(2)
       .skills-content
       .progress:nth-child(4)
@@ -781,6 +837,7 @@
       width: 88%;
     }
 
+    /* ===================== PROJECT ===================== */
     .project {
       min-height: auto;
       padding: 6rem 10%;
@@ -916,18 +973,6 @@
       border: 0.2rem solid #00abf0;
     }
 
-    .contact
-      form
-      .input-box
-      .input-field
-      input::placeholder
-      .contact
-      form
-      .textarea-field
-      textarea::placeholder {
-      color: #ededed;
-    }
-
     .contact form .focus {
       position: absolute;
       top: 0;
@@ -957,42 +1002,6 @@
       resize: none;
     }
 
-    .contact form .btn-box.btns .btn {
-      cursor: pointer;
-    }
-
-    .btn-box.btn .btn {
-      position: relative;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #00abf0;
-      border: 2px solid #00abf0;
-      border-radius: 8px;
-      font-size: 19px;
-      color: #081b29;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 1px;
-      z-index: 1;
-      overflow: hidden;
-      transition: 0.5s;
-    }
-
-    .btn-box.btn .btn::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: #112e42;
-      z-index: -1;
-      transition: 0.5s;
-    }
-
-    .btn-box.btn .btn:hover {
-      color: #00abf0;
-    }
     .footer {
       display: flex;
       justify-content: center;
@@ -1034,27 +1043,29 @@
     .footer-iconTop a:hover::before {
       width: 100%;
     }
-
     .footer-iconTop a i {
       font-size: 2.4rem;
       color: #112e42;
       transition: 0.5s;
     }
-
     .footer-iconTop a:hover i {
       color: #081b29;
+    }
+
+    /* ===================== EDUCATION COLUMN FIX ===================== */
+    .Education-column {
+      flex: 1 1 45rem;
     }
   </style>
   <body>
     <header class="header">
       <a href="#" class="logo">port<span>folio.</span></a>
-
       <nav class="navbar">
         <a href="#" class="active">Home</a>
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
-        <a href="project">Project</a>
+        <a href="#project">Project</a>
       </nav>
     </header>
 
@@ -1064,34 +1075,28 @@
         <h3>Full Stack Developer</h3>
         <p>
           Crafting seamless digital experiences through expert full stack
-          development .
+          development.
         </p>
-
         <div class="btn-box">
           <a href="#">Hire Me</a>
         </div>
       </div>
-
       <div class="home-sci">
         <a href=""><i class="bx bxl-facebook"></i></a>
         <a href="#"><i class="bx bxl-twitter"></i></a>
         <a href="#"><i class="bx bxl-linkedin-square"></i></a>
         <a href="#"><i class="bx bxl-instagram"></i></a>
       </div>
-
       <div class="home_imgHover"></div>
     </section>
 
-    <!--about section design-->
-
+    <!-- About -->
     <section class="about" id="about">
       <h2 class="heading">About <span>Me</span></h2>
-
       <div class="about-img">
         <img src="img/PHOTO-2025-02-25-11-34-05.jpg" alt="" />
         <span class="circle-spin"></span>
       </div>
-
       <div class="about-content">
         <h3>Full Stack Developer</h3>
         <div class="about-text">
@@ -1133,7 +1138,6 @@
             </p>
           </div>
         </div>
-
         <div class="btn-box btn">
           <a
             href="#"
@@ -1146,15 +1150,13 @@
       </div>
     </section>
 
-    <!--education section design-->
-
+    <!-- Education -->
     <section class="education" id="education">
       <h2 class="heading">My <span>Journey</span></h2>
-
       <div class="education-row">
+        <!-- Education Column -->
         <div class="Education-column">
           <h3 class="title"><i class="bx bxs-graduation"></i> Education</h3>
-
           <div class="education-box">
             <div class="education-content">
               <div class="content">
@@ -1166,18 +1168,6 @@
                 <p><i class="bx bx-trophy"></i> CGPA: 7.45</p>
               </div>
             </div>
-
-            <div class="education-content">
-              <div class="content">
-                <div class="year">
-                  <i class="bx bxs-calendar"></i> 2018 - 2019
-                </div>
-                <h3>Secondary Education (10th)</h3>
-                <p><i class="bx bxs-school"></i> Logos Mission High School</p>
-                <p><i class="bx bx-trophy"></i> Grade: 57%</p>
-              </div>
-            </div>
-
             <div class="education-content">
               <div class="content">
                 <div class="year">
@@ -1188,13 +1178,45 @@
                 <p><i class="bx bx-trophy"></i> Grade: 71.8%</p>
               </div>
             </div>
+            <div class="education-content">
+              <div class="content">
+                <div class="year">
+                  <i class="bx bxs-calendar"></i> 2018 - 2019
+                </div>
+                <h3>Secondary Education (10th)</h3>
+                <p><i class="bx bxs-school"></i> Logos Mission High School</p>
+                <p><i class="bx bx-trophy"></i> Grade: 57%</p>
+              </div>
+            </div>
           </div>
         </div>
 
+        <!-- Experience Column -->
         <div class="Education-column">
           <h3 class="title"><i class="bx bx-briefcase"></i> Experience</h3>
-
           <div class="education-box">
+            <!-- ✅ INTERNSHIP CARD — LIVE -->
+            <div class="education-content internship-card">
+              <div class="content">
+                <div class="year">
+                  <i class="bx bxs-calendar"></i> 2025 - Present
+                </div>
+                <h3>Accrete Info Solution Technologies Pvt. Ltd.</h3>
+                <p><i class="bx bx-map-pin"></i> Gandhinagar, Gujarat</p>
+                <p>
+                  <i class="bx bx-code-alt"></i> Full Stack Developer Intern
+                </p>
+                <p>
+                  <i class="bx bx-network-chart"></i> Hands-on Industry
+                  Experience
+                </p>
+                <span class="internship-badge"
+                  ><i class="bx bx-check-shield"></i> Currently Active
+                  Internship</span
+                >
+              </div>
+            </div>
+
             <div class="education-content">
               <div class="content">
                 <div class="year">
@@ -1209,23 +1231,12 @@
             <div class="education-content">
               <div class="content">
                 <div class="year">
-                  <i class="bx bxs-calendar"></i> 2023 - 2024
+                  <i class="bx bxs-calendar"></i> 2024 - 2025
                 </div>
-                <h3>Food Market</h3>
+                <h3>E-commerce Project</h3>
                 <p><i class="bx bx-palette"></i> Personal Design Project</p>
-                <p><i class="bx bx-code-alt"></i> Frontend Development</p>
-              </div>
-            </div>
-
-            <div class="education-content">
-              <div class="content">
-                <div class="year">
-                  <i class="bx bxs-calendar"></i> Coming Soon
-                </div>
-                <h3>Future Projects</h3>
-                <p><i class="bx bx-rocket"></i> Innovative Solutions Ahead</p>
                 <p>
-                  <i class="bx bx-target-lock"></i> Continuous Learning & Growth
+                  <i class="bx bx-code-alt"></i> Frontend & Backend Integration
                 </p>
               </div>
             </div>
@@ -1234,60 +1245,42 @@
       </div>
     </section>
 
-    <!--Skills section desing-->
-
+    <!-- Skills -->
     <section class="skills" id="skills">
       <h2 class="heading">My <span>Skills</span></h2>
-
       <div class="skills-row">
         <div class="skills-column">
-          <h3 class="title">Coding Skills</h3>
-
+          <h3 class="title">Technical Skills</h3>
           <div class="skills-box">
             <div class="skills-content">
               <div class="progress">
                 <h3>HTML <span>98%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
-
               <div class="progress">
                 <h3>CSS <span>95%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
-
               <div class="progress">
                 <h3>React <span>88%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
-
               <div class="progress">
                 <h3>Node.js <span>85%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skills-column">
-          <h3 class="title">Technical Skills</h3>
-
-          <div class="skills-box">
-            <div class="skills-content">
               <div class="progress">
                 <h3>Git & GitHub <span>92%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
-
               <div class="progress">
                 <h3>JavaScript <span>95%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
-
               <div class="progress">
                 <h3>MERN Stack <span>85%</span></h3>
                 <div class="bar"><span></span></div>
               </div>
-
               <div class="progress">
                 <h3>SQL <span>88%</span></h3>
                 <div class="bar"><span></span></div>
@@ -1297,8 +1290,8 @@
         </div>
       </div>
     </section>
-    <!--project section design-->
 
+    <!-- Projects -->
     <section class="project" id="project">
       <h2 class="heading">My <span>Projects</span></h2>
       <div class="project-container">
@@ -1316,24 +1309,26 @@
           >
           <p>Full Stack MERN Application | Task Management</p>
         </div>
+        <div class="project1">
+          <a
+            href="https://rajesh-masala-frontend-git-main-amansingh2509s-projects.vercel.app"
+            target="_blank"
+            >🛒 Rajesh Masala Shop</a
+          >
+          <p>Provisional Shop Website | Rajesh Masala Shop & Agency</p>
+        </div>
       </div>
     </section>
-
-    <!--contact section design -->
 
     <script>
       function toggleReadMore(event) {
         event.preventDefault();
         const moreText = document.getElementById("moreText");
         const btn = document.getElementById("readMoreBtn");
-
         moreText.classList.toggle("show");
-
-        if (moreText.classList.contains("show")) {
-          btn.textContent = "Show Less";
-        } else {
-          btn.textContent = "Read More";
-        }
+        btn.textContent = moreText.classList.contains("show")
+          ? "Show Less"
+          : "Read More";
       }
     </script>
   </body>
