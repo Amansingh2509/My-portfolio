@@ -18,7 +18,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+      font-family: \"Poppins\", sans-serif;
     }
 
     body {
@@ -52,7 +52,7 @@
     }
 
     .logo::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 0;
       right: 0;
@@ -101,7 +101,7 @@
     }
 
     .home-content h1::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 0;
       right: 0;
@@ -120,7 +120,7 @@
     }
 
     .home-content h3::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 0;
       right: 0;
@@ -140,7 +140,7 @@
     }
 
     .home-content p::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 0;
       right: 0;
@@ -160,7 +160,7 @@
     }
 
     .home-content .btn-box::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 0;
       right: 0;
@@ -210,7 +210,7 @@
     }
 
     .btn-box a::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 0;
       left: 0;
@@ -252,7 +252,7 @@
     }
 
     .home-sci a::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 0;
       left: 0;
@@ -429,7 +429,6 @@
       background: #112e42;
     }
 
-    /* ===================== EDUCATION SECTION ===================== */
     .education {
       display: flex;
       justify-content: center;
@@ -469,7 +468,7 @@
     }
 
     .education-column .title::after {
-      content: "";
+      content: \"\";
       flex: 1;
       height: 2px;
       background: linear-gradient(to right, #00abf0, transparent);
@@ -501,7 +500,7 @@
     }
 
     .education-box .education-content::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 50%;
       left: -2.6rem;
@@ -565,7 +564,6 @@
       flex-shrink: 0;
     }
 
-    /* ===================== INTERNSHIP CARD — SPECIAL STYLE ===================== */
     .education-box .education-content.internship-card {
       background: linear-gradient(
         135deg,
@@ -579,7 +577,7 @@
     }
 
     .education-box .education-content.internship-card::after {
-      content: "● LIVE";
+      content: \"● LIVE\";
       position: absolute;
       top: 1rem;
       right: 1rem;
@@ -628,7 +626,6 @@
     .education-content.internship-card .content h3 {
       color: #fff;
     }
-
     .education-content.internship-card .content p i {
       color: #00ff96;
     }
@@ -652,7 +649,6 @@
       letter-spacing: 0.04em;
     }
 
-    /* ===================== SKILLS ===================== */
     .skills {
       min-height: auto;
       padding: 6rem 10%;
@@ -687,7 +683,7 @@
     }
 
     .skills-column .title::after {
-      content: "";
+      content: \"\";
       position: absolute;
       bottom: 0;
       left: 50%;
@@ -723,7 +719,7 @@
     }
 
     .skills-box .skills-content::before {
-      content: " ";
+      content: \" \";
       position: absolute;
       top: 0;
       left: 0;
@@ -837,7 +833,6 @@
       width: 88%;
     }
 
-    /* ===================== PROJECT ===================== */
     .project {
       min-height: auto;
       padding: 6rem 10%;
@@ -878,7 +873,7 @@
     }
 
     .project1::before {
-      content: "";
+      content: \"\";
       position: absolute;
       top: 0;
       left: 0;
@@ -906,7 +901,7 @@
     .project1 a {
       position: relative;
       z-index: 1;
-      font-family: "Poppins", sans-serif;
+      font-family: \"Poppins\", sans-serif;
       font-size: 1.5rem;
       font-weight: 600;
       color: #00abf0;
@@ -929,90 +924,374 @@
       position: relative;
       z-index: 1;
       margin-top: 1rem;
-      font-family: "Poppins", sans-serif;
+      font-family: \"Poppins\", sans-serif;
       font-size: 0.95rem;
       color: #b0b0b0;
       text-align: center;
       padding: 0 1rem;
     }
 
+    /* ===================== CONTACT SECTION ===================== */
     .contact {
       min-height: auto;
-      padding-bottom: 7rem;
-      background-color: #112e42;
+      padding: 6rem 10% 7rem;
+      background: #112e42;
     }
 
-    .contact form {
-      max-width: 70rem;
-      margin: 0 auto;
+    .contact .heading {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .contact-subtitle {
       text-align: center;
+      color: #b0b0b0;
+      font-size: 1.1rem;
+      margin-bottom: 4rem;
     }
 
-    .contact form .input-box {
-      position: relative;
+    /* Contact Info Cards */
+    .contact-info-row {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 4rem;
     }
 
-    .contact form .input-box .input-field {
-      position: relative;
-      width: 49%;
-      margin: 0.8rem 0;
-    }
-
-    .contact form .input-box .input-field input,
-    .contact form .textarea-field textarea {
-      width: 100%;
-      height: 100%;
-      padding: 1.5rem;
-      font-size: 1.6rem;
+    .contact-info-card {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: linear-gradient(145deg, #0f2a3f, #0d2436);
+      border: 1px solid rgba(0, 171, 240, 0.25);
+      border-radius: 1rem;
+      padding: 1.2rem 2rem;
+      min-width: 260px;
+      text-decoration: none;
       color: #ededed;
-      background: transparent;
-      border-radius: 0.6rem;
-      border: 0.2rem solid #00abf0;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .contact form .focus {
+    .contact-info-card::before {
+      content: \"\";
       position: absolute;
       top: 0;
       left: 0;
       width: 0;
       height: 100%;
-      background: #00abf0;
-      border-radius: 0.6rem;
-      z-index: -1;
-      transition: 0.5s;
+      background: linear-gradient(
+        to right,
+        rgba(0, 171, 240, 0.12),
+        transparent
+      );
+      transition: 0.4s ease;
+      z-index: 0;
     }
 
-    .contact form .input-box .input-field input:focus ~ .focus,
-    .contact form .input-box .input-field input:valid ~ .focus,
-    .contact form .textarea-field textarea:focus ~ .focus,
-    .contact form .textarea-field textarea:valid ~ .focus {
+    .contact-info-card:hover::before {
       width: 100%;
     }
 
-    .contact form .textarea-field {
-      position: relative;
-      margin: 0.8rem 0 2.7rem;
+    .contact-info-card:hover {
+      border-color: #00abf0;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 171, 240, 0.2);
+    }
+
+    .contact-info-card.whatsapp-card {
+      border-color: rgba(37, 211, 102, 0.3);
+    }
+
+    .contact-info-card.whatsapp-card::before {
+      background: linear-gradient(
+        to right,
+        rgba(37, 211, 102, 0.1),
+        transparent
+      );
+    }
+
+    .contact-info-card.whatsapp-card:hover {
+      border-color: #25d366;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
+    }
+
+    .contact-info-card .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
     }
 
-    .contact form .textarea-field textarea {
-      resize: none;
+    .contact-info-card .card-icon.blue-icon {
+      background: rgba(0, 171, 240, 0.15);
+      border: 2px solid rgba(0, 171, 240, 0.4);
+      color: #00abf0;
     }
 
+    .contact-info-card .card-icon.green-icon {
+      background: rgba(37, 211, 102, 0.15);
+      border: 2px solid rgba(37, 211, 102, 0.4);
+      color: #25d366;
+    }
+
+    .contact-info-card .card-text {
+      position: relative;
+      z-index: 1;
+    }
+    .contact-info-card .card-text .card-label {
+      font-size: 0.8rem;
+      color: #7a9db5;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.2rem;
+    }
+    .contact-info-card .card-text .card-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ededed;
+    }
+
+    /* WhatsApp pulse animation */
+    .whatsapp-card .card-icon.green-icon {
+      animation: waPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes waPulse {
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Contact Form */
+    .contact-form-wrap {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .contact-form-wrap .form-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ededed;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .contact-form-wrap .form-title i {
+      color: #00abf0;
+      font-size: 1.6rem;
+    }
+
+    .contact-form-wrap form {
+      background: linear-gradient(145deg, #0f2a3f, #0a1f30);
+      border: 1px solid rgba(0, 171, 240, 0.2);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      flex: 1;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #7a9db5;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      background: rgba(8, 27, 41, 0.8);
+      border: 1.5px solid rgba(0, 171, 240, 0.25);
+      border-radius: 0.7rem;
+      color: #ededed;
+      font-size: 1rem;
+      font-family: \"Poppins\", sans-serif;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #4a6a7e;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #00abf0;
+      background: rgba(0, 171, 240, 0.05);
+      box-shadow: 0 0 0 3px rgba(0, 171, 240, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-submit-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .btn-send {
+      flex: 1;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #00abf0, #0080c0);
+      border: none;
+      border-radius: 0.7rem;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: \"Poppins\", sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: 0.3s ease;
+      letter-spacing: 0.04em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-send::before {
+      content: \"\";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    .btn-send:hover::before {
+      left: 100%;
+    }
+
+    .btn-send:hover {
+      background: linear-gradient(135deg, #00c4ff, #0095d9);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 171, 240, 0.4);
+    }
+
+    .btn-send:active {
+      transform: translateY(0);
+    }
+
+    .btn-send.loading {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .btn-whatsapp-form {
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, #25d366, #1da851);
+      border: none;
+      border-radius: 0.7rem;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: \"Poppins\", sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: 0.3s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-whatsapp-form:hover {
+      background: linear-gradient(135deg, #2de070, #22c05e);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Status message */
+    .form-status {
+      margin-top: 1rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .form-status.success {
+      background: rgba(37, 211, 102, 0.12);
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      color: #25d366;
+      display: block;
+    }
+
+    .form-status.error {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #f87171;
+      display: block;
+    }
+
+    /* ===================== FOOTER ===================== */
     .footer {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
       padding: 2rem 9%;
-      background: #112e42;
+      background: #081b29;
+      border-top: 1px solid rgba(0, 171, 240, 0.15);
+      gap: 1rem;
     }
 
     .footer-text p {
-      font-size: 1.6rem;
+      font-size: 1rem;
+      color: #7a9db5;
+    }
+
+    .footer-text p span {
+      color: #00abf0;
     }
 
     .footer-iconTop a {
@@ -1021,40 +1300,122 @@
       justify-content: center;
       align-items: center;
       padding: 0.8rem;
-      background: #081b29;
-      border: 0.2rem solid #081b29;
+      background: rgba(0, 171, 240, 0.1);
+      border: 1px solid rgba(0, 171, 240, 0.3);
       border-radius: 0.6rem;
       z-index: 1;
       overflow: hidden;
+      transition: 0.3s;
+      text-decoration: none;
     }
 
-    .footer-iconTop a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: #112e42;
-      z-index: -1;
-      transition: 0.5s;
+    .footer-iconTop a:hover {
+      background: #00abf0;
+      box-shadow: 0 0 20px rgba(0, 171, 240, 0.4);
     }
 
-    .footer-iconTop a:hover::before {
-      width: 100%;
-    }
     .footer-iconTop a i {
-      font-size: 2.4rem;
-      color: #112e42;
-      transition: 0.5s;
+      font-size: 1.6rem;
+      color: #00abf0;
+      transition: 0.3s;
     }
+
     .footer-iconTop a:hover i {
       color: #081b29;
     }
 
-    /* ===================== EDUCATION COLUMN FIX ===================== */
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, #25d366, #1da851);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #fff;
+      text-decoration: none;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+      transition: 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.12) translateY(-3px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float::before {
+      content: \"\";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba(37, 211, 102, 0.4);
+      animation: waFloat 2s ease-in-out infinite;
+    }
+
+    @keyframes waFloat {
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .whatsapp-float-tooltip {
+      position: absolute;
+      right: 70px;
+      background: #1a3a2a;
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      color: #25d366;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.4rem 0.9rem;
+      border-radius: 0.5rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .whatsapp-float:hover .whatsapp-float-tooltip {
+      opacity: 1;
+    }
+
     .Education-column {
       flex: 1 1 45rem;
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .form-submit-row {
+        flex-direction: column;
+      }
+      .btn-send,
+      .btn-whatsapp-form {
+        width: 100%;
+        justify-content: center;
+      }
+      .contact-info-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-info-card {
+        width: 100%;
+        max-width: 360px;
+      }
     }
   </style>
   <body>
@@ -1066,6 +1427,7 @@
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -1078,7 +1440,7 @@
           development.
         </p>
         <div class="btn-box">
-          <a href="#">Hire Me</a>
+          <a href="#contact">Hire Me</a>
         </div>
       </div>
       <div class="home-sci">
@@ -1154,7 +1516,6 @@
     <section class="education" id="education">
       <h2 class="heading">My <span>Journey</span></h2>
       <div class="education-row">
-        <!-- Education Column -->
         <div class="Education-column">
           <h3 class="title"><i class="bx bxs-graduation"></i> Education</h3>
           <div class="education-box">
@@ -1190,12 +1551,9 @@
             </div>
           </div>
         </div>
-
-        <!-- Experience Column -->
         <div class="Education-column">
           <h3 class="title"><i class="bx bx-briefcase"></i> Experience</h3>
           <div class="education-box">
-            <!-- ✅ INTERNSHIP CARD — LIVE -->
             <div class="education-content internship-card">
               <div class="content">
                 <div class="year">
@@ -1216,7 +1574,6 @@
                 >
               </div>
             </div>
-
             <div class="education-content">
               <div class="content">
                 <div class="year">
@@ -1227,7 +1584,6 @@
                 <p><i class="bx bx-globe"></i> MERN Stack Web Application</p>
               </div>
             </div>
-
             <div class="education-content">
               <div class="content">
                 <div class="year">
@@ -1318,6 +1674,128 @@
       </div>
     </section>
 
+    <!-- ===================== CONTACT SECTION ===================== -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me</span></h2>
+      <p class="contact-subtitle">
+        Have a project in mind or want to collaborate? Let's talk!
+      </p>
+
+      <!-- Contact Info Cards -->
+      <div class="contact-info-row">
+        <a
+          href="https://wa.me/7667816024"
+          target="_blank"
+          class="contact-info-card whatsapp-card"
+        >
+          <div class="card-icon green-icon">
+            <i class="bx bxl-whatsapp"></i>
+          </div>
+          <div class="card-text">
+            <div class="card-label">WhatsApp Me</div>
+            <div class="card-value">+91 76678 16024</div>
+          </div>
+        </a>
+        <a href="#" class="contact-info-card">
+          <div class="card-icon blue-icon"><i class="bx bx-map-pin"></i></div>
+          <div class="card-text">
+            <div class="card-label">Location</div>
+            <div class="card-value">Gandhinagar, Gujarat</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrap">
+        <div class="form-title">
+          <i class="bx bx-send"></i>
+          Send me a message — I'll contact you soon......
+        </div>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Aman Singh"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Project discussion / Hiring / Collaboration"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell me about your project or how I can help you..."
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-submit-row">
+            <button type="submit" class="btn-send" id="sendBtn">
+              <i class="bx bx-send"></i>
+              <span id="sendBtnText">Send Message</span>
+            </button>
+            <a
+              href="https://wa.me/7667816204?text=Hi%20Aman!%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."
+              target="_blank"
+              class="btn-whatsapp-form"
+            >
+              <i class="bx bxl-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-text">
+        <p>© 2024 <span>Aman Singh</span> — Full Stack Developer</p>
+      </div>
+      <div class="footer-iconTop" style="margin-left: auto">
+        <a href="#"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/7667816204?text=Hi%20Aman!%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."
+      target="_blank"
+      class="whatsapp-float"
+    >
+      <span class="whatsapp-float-tooltip">Chat on WhatsApp</span>
+      <i class="bx bxl-whatsapp"></i>
+    </a>
+
     <script>
       function toggleReadMore(event) {
         event.preventDefault();
@@ -1327,6 +1805,69 @@
         btn.textContent = moreText.classList.contains("show")
           ? "Show Less"
           : "Read More";
+      }
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        const btn = document.getElementById("sendBtn");
+        const btnText = document.getElementById("sendBtnText");
+        const status = document.getElementById("formStatus");
+
+        // Loading state
+        btn.classList.add("loading");
+        btnText.textContent = "Sending...";
+        btn.querySelector(".bx").className = "bx bx-loader-alt bx-spin";
+        status.className = "form-status";
+        status.style.display = "none";
+
+        const formData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          subject: document.getElementById("subject").value,
+          message: document.getElementById("message").value,
+        };
+
+        try {
+          const response = await fetch("http://localhost:3000/send", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            status.className = "form-status success";
+            status.textContent =
+              result.msg ||
+              "✅ Message sent successfully! I'll reply soon on your email.";
+            document.getElementById("contactForm").reset();
+          } else {
+            throw new Error(result.msg || "Server error");
+          }
+        } catch (error) {
+          console.error("Form submit error:", error);
+
+          if (
+            error.message.includes("Failed to fetch") ||
+            error.message.includes("NetworkError")
+          ) {
+            status.className = "form-status error";
+            status.textContent =
+              "⚠️ Server running on port 3000. Visit http://localhost:3000, or use WhatsApp.";
+          } else {
+            status.className = "form-status error";
+            status.textContent =
+              error.message ||
+              "⚠️ Could not send. Please WhatsApp me directly.";
+          }
+        } finally {
+          btn.classList.remove("loading");
+          btnText.textContent = "Send Message";
+          btn.querySelector(".bx").className = "bx bx-send";
+        }
       }
     </script>
   </body>
