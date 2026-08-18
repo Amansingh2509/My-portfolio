@@ -1742,7 +1742,7 @@
       <div class="contact-form-wrap">
         <div class="form-title">
           <i class="bx bx-send"></i>
-          Send me a message — I'll reply on email
+          Send me a message - I'll reply by email
         </div>
         <form id="contactForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
@@ -1861,7 +1861,7 @@
         };
 
         try {
-          const res = await fetch("http://localhost:5000/send", {
+          const res = await fetch("/api/send", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -1875,7 +1875,8 @@
           }
 
           status.className = "form-status success";
-          status.textContent = "✅ Message sent successfully! I'll reply soon.";
+          status.textContent =
+            "✅ Message sent successfully! I'll reply by email soon.";
           document.getElementById("contactForm").reset();
         } catch (error) {
           console.error("Send error:", error);
