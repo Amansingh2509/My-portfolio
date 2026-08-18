@@ -1,164 +1,94 @@
+const express = require("express");
+const cors = require("cors");
+const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-const express = require("express");
-const path = require("path");
-const nodemailer = require("nodemailer");
-
 const app = express();
-const PORT = process.env.PORT || 3000; // Changed port to avoid conflict
 
-// Explicit CORS headers for all routes
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-  );
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-  if (req.method === "OPTIONS") {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
-});
-
-app.use(express.json({ limit: "10mb" }));
-app.use(express.static(path.join(__dirname)));
-
-// Test route
+// Health check
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.json({ ok: true, service: "portfolio-email-api" });
 });
 
-// Send email route
-app.post("/send", async (req, res) => {
-  console.log("POST /send received:", req.body); // Debug log
+function validateEmailInput(payload = {}) {
+  const { name, email, subject, message } = payload;
 
-  const { name, email, subject, message } = req.body;
-
-  // validation
-  if (!name || !email || !subject || !message) {
-    return res.status(400).json({
-      success: false,
-      msg: "All fields (name, email, subject, message) are required",
-    });
+  if (!name || typeof name !== "string" || !name.trim()) {
+    return { valid: false, error: "Name is required" };
+  }
+  if (!email || typeof email !== "string" || !email.trim()) {
+    return { valid: false, error: "Email is required" };
+  }
+  if (!subject || typeof subject !== "string" || !subject.trim()) {
+    return { valid: false, error: "Subject is required" };
+  }
+  if (!message || typeof message !== "string" || !message.trim()) {
+    return { valid: false, error: "Message is required" };
   }
 
-  // Skip strict email validation - server receives data fine
-  console.log("Email validation passed:", email);
+  return { valid: true };
+}
 
+app.post("/send", async (req, res) => {
   try {
-    // transporter
+    const check = validateEmailInput(req.body);
+    if (!check.valid) {
+      return res.status(400).json({ ok: false, error: check.error });
+    }
+
+    const { name, email, subject, message } = req.body;
+
+    // Configure transporter using environment variables
+    // Required:
+    //   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_TO
+    const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_TO } =
+      process.env;
+
+    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !EMAIL_TO) {
+      return res.status(500).json({
+        ok: false,
+        error:
+          "Missing SMTP configuration. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_TO in .env",
+      });
+    }
+
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: SMTP_HOST,
+      port: Number(SMTP_PORT),
+      secure: Number(SMTP_PORT) === 465, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD,
+        user: SMTP_USER,
+        pass: SMTP_PASS,
       },
     });
 
-    // Verify transporter (optional, for debugging)
-    await transporter.verify();
-
-    // Enhanced mail options with HTML
     const mailOptions = {
-      from: `"Portfolio Contact Form" <${process.env.EMAIL}>`,
-      to: process.env.EMAIL,
-      replyTo: email,
-      subject: `📩 New Portfolio Message: ${subject} from ${name}`,
-      text: `
-New message from Portfolio contact form:
-
-Name: ${name}
-Email: ${email}
-Subject: ${subject}
-Message: ${message}
-
----
-Sent via http://localhost:${PORT}/send
-      `,
-      html: `
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background: linear-gradient(135deg, #00abf0, #0080c0); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center; }
-    .content { background: #f8f9fa; padding: 30px; border-radius: 0 0 10px 10px; }
-    .field { margin-bottom: 20px; }
-    .field label { font-weight: 600; color: #00abf0; display: block; margin-bottom: 5px; }
-    .field value { font-family: monospace; background: white; padding: 8px 12px; border-radius: 5px; border-left: 4px solid #00abf0; }
-    .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 0.9em; }
-  </style>
-</head>
-<body>
-  <div class="header">
-    <h2>📩 New Portfolio Message</h2>
-  </div>
-  <div class="content">
-    <div class="field">
-      <label>Name:</label>
-      <value>${name}</value>
-    </div>
-    <div class="field">
-      <label>Email:</label>
-      <value>${email}</value>
-    </div>
-    <div class="field">
-      <label>Subject:</label>
-      <value>${subject}</value>
-    </div>
-    <div class="field">
-      <label>Message:</label>
-      <value style="white-space: pre-wrap; font-size: 1.1em;">${message}</value>
-    </div>
-  </div>
-  <div class="footer">
-    Sent via Aman Singh Portfolio • http://localhost:${PORT}
-  </div>
-</body>
-</html>
-      `,
+      from: SMTP_USER,
+      to: EMAIL_TO,
+      subject: subject,
+      text: [
+        `You have received a new message from your portfolio website.`,
+        `\nName: ${name}`,
+        `Email: ${email}`,
+        `\nMessage:\n${message}`,
+      ].join("\n"),
     };
 
-    // send mail
     await transporter.sendMail(mailOptions);
 
-    res.status(200).json({
-      success: true,
-      msg: "✅ Message sent successfully! Check your email.",
-      data: { name, email, subject },
-    });
-  } catch (error) {
-    console.error("Email Error:", error);
-
-    // More specific error handling
-    if (error.code === "EAUTH") {
-      res.status(500).json({
-        success: false,
-        msg: "❌ Email authentication failed. Check EMAIL/PASSWORD in .env (use Gmail App Password)",
-      });
-    } else {
-      res.status(500).json({
-        success: false,
-        msg: "❌ Failed to send email. Please try again or contact via WhatsApp.",
-      });
-    }
+    return res.json({ ok: true, message: "Email sent successfully" });
+  } catch (err) {
+    console.error("POST /send error:", err);
+    return res.status(500).json({ ok: false, error: "Failed to send email" });
   }
 });
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).send("Not Found");
-});
-
-// start server
+const PORT = process.env.PORT ? Number(process.env.PORT) : 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Portfolio Server running on http://localhost:${PORT}`);
-  console.log(`📧 Contact API ready at http://localhost:${PORT}/send`);
-  console.log(`🌐 View portfolio: http://localhost:${PORT}`);
-  console.log(
-    `🔧 Test API: curl -X POST http://localhost:${PORT}/send -H "Content-Type: application/json" -d '{"name":"test","email":"test@test.com","subject":"test","message":"test"}'`,
-  );
+  console.log(`Portfolio email API running on http://localhost:${PORT}`);
 });
